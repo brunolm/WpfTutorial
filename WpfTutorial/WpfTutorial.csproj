@@ -56,11 +56,13 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ILevelViewModel.cs" />
     <Compile Include="MetadataExportAttribute.cs" />
     <Compile Include="ExportViewModelAttribute.cs" />
     <Compile Include="Extenders\ContentControlExtender.cs" />
     <Compile Include="Extenders\INotifyPropertyChangedExtender.cs" />
     <Compile Include="MefBootstrap.cs" />
+    <Compile Include="ViewModels\BaseViewModel.cs" />
     <Compile Include="ViewModels\BaseWindowViewModel.cs" />
     <Compile Include="IViewModel.cs" />
     <Compile Include="IExportMetadata.cs" />

@@ -5,12 +5,24 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Controls;
+using WpfTutorial.Extenders;
 
 namespace WpfTutorial.ViewModels
 {
     [ExportViewModel(typeof(LevelWindowViewModel))]
-    public class LevelWindowViewModel : IViewModel, INotifyPropertyChanged
+    public class LevelWindowViewModel : BaseViewModel
     {
+        private string description;
+        public string Description
+        {
+            get { return description; }
+            private set
+            {
+                description = value;
+                this.RaisePropertyChanged();
+            }
+        }
+
         private UserControl level;
         public UserControl Level
         {
@@ -18,16 +30,10 @@ namespace WpfTutorial.ViewModels
             set
             {
                 level = value;
-                if (PropertyChanged != null)
-                    PropertyChanged(this, new PropertyChangedEventArgs("Level"));
+                this.RaisePropertyChanged();
+
+                Description = (Level.DataContext as ILevelViewModel).Description;
             }
         }
-
-        public void OnLoaded(object sender)
-        {
-            
-        }
-
-        public event PropertyChangedEventHandler PropertyChanged;
     }
 }

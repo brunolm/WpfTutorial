@@ -9,10 +9,8 @@ using WpfTutorial.Extenders;
 
 namespace WpfTutorial.ViewModels
 {
-    public class BaseWindowViewModel : IViewModel, INotifyPropertyChanged
+    public class BaseWindowViewModel : BaseViewModel
     {
-        public event PropertyChangedEventHandler PropertyChanged;
-
         private string title;
         public virtual string Title
         {
@@ -22,10 +20,6 @@ namespace WpfTutorial.ViewModels
                 title = value;
                 this.RaisePropertyChanged();
             }
-        }
-
-        public virtual void OnLoaded(object sender)
-        {
         }
     }
 }

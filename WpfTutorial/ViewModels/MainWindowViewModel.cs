@@ -48,7 +48,23 @@ namespace WpfTutorial.ViewModels
                 var levelWindow = new LevelWindow();
                 (levelWindow.DataContext as LevelWindowViewModel).Level =
                     Activator.CreateInstance(SelectedLevel.Value.Key) as UserControl;
-                levelWindow.ShowDialog();
+
+                try
+                {
+                    levelWindow.ShowDialog();
+                }
+                catch (Exception ex)
+                {
+                    string errorMessage = ex.Message;
+                    string stackTrace = ex.StackTrace;
+                    var error = ex;
+                    
+                    // if you got here something is still wrong in the level
+                    // check the information above and try again
+                    System.Diagnostics.Debugger.Break();
+
+                    MessageBox.Show(String.Format("{1}{0}{2}", Environment.NewLine, errorMessage, stackTrace), "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
                 
             }, o => SelectedLevel != null);
         }
