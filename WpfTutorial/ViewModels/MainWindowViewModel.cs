@@ -4,6 +4,7 @@ using System.Collections.ObjectModel;
 using System.ComponentModel.Composition;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -45,12 +46,14 @@ namespace WpfTutorial.ViewModels
 
             PlayCommand = new RelayCommand(o =>
             {
-                var levelWindow = new LevelWindow();
-                (levelWindow.DataContext as LevelWindowViewModel).Level =
-                    Activator.CreateInstance(SelectedLevel.Value.Key) as UserControl;
-
                 try
                 {
+                    var levelWindow = new LevelWindow();
+
+                    (levelWindow.DataContext as LevelWindowViewModel).Level =
+                        Activator.CreateInstance(SelectedLevel.Value.Key) as UserControl;
+
+                
                     levelWindow.ShowDialog();
                 }
                 catch (Exception ex)
@@ -74,7 +77,9 @@ namespace WpfTutorial.ViewModels
             var levelControlExports = MefBootstrap.Container.GetExports<ILevelControl, IExportMetadata>();
 
             Levels = new ObservableCollection<KeyValuePair<Type, string>>(
-                levelControlExports.Where(o => o.Metadata.DeclaredType.Name.StartsWith("Level"))
+                levelControlExports
+                    .Where(o => o.Metadata.DeclaredType.Name.StartsWith("Level"))
+                    .OrderBy(o => int.Parse(Regex.Replace(o.Metadata.DeclaredType.Name, @"[^\d]", "")))
                     .Select(o => new KeyValuePair<Type, string>(o.Metadata.DeclaredType, o.Metadata.Name))
             );
         }
