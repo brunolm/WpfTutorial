@@ -56,7 +56,7 @@ namespace WpfTutorial.ViewModels
 
         public Level3ViewViewModel()
         {
-            CalculatePowerCommand = new RelayCommand(CalculatePower);
+            CalculatePowerCommand = new RelayCommand(CalculatePowerExecute);
 
             Knights = new ObservableCollection<Knight>(new List<Knight>
             {
@@ -93,7 +93,7 @@ Steps to reproduce:
             #endregion
         }
 
-        private void CalculatePower(object obj)
+        private void CalculatePowerExecute(object obj)
         {
             MessageBox.Show(
                 String.Format("Name: {1}{0}Strengh: {2}{0}Magic: {3}{0}Spirit: {4}{0}Total: {5}"
