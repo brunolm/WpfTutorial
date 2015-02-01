@@ -8,19 +8,8 @@ using WpfTutorial.Extenders;
 namespace WpfTutorial.ViewModels
 {
     [ExportViewModel(typeof(Level2ViewViewModel))]
-    public class Level2ViewViewModel : BaseViewModel, ILevelViewModel
+    public class Level2ViewViewModel : BaseLevelViewModel
     {
-        private string description;
-        public string Description
-        {
-            get { return description; }
-            set
-            {
-                description = value;
-                this.RaisePropertyChanged();
-            }
-        }
-
         public class Person
         {
             public string Name { get; set; }

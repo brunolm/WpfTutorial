@@ -11,19 +11,8 @@ using WpfTutorial.Extenders;
 namespace WpfTutorial.ViewModels
 {
     [ExportViewModel(typeof(Level1ViewViewModel))]
-    public class Level1ViewViewModel : BaseViewModel, ILevelViewModel
+    public class Level1ViewViewModel : BaseLevelViewModel
     {
-        private string description;
-        public string Description
-        {
-            get { return description; }
-            set
-            {
-                description = value;
-                this.RaisePropertyChanged();
-            }
-        }
-
         private ObservableCollection<Fee> fees;
         public ObservableCollection<Fee> Fees
         {

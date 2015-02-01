@@ -32,7 +32,7 @@ namespace WpfTutorial.ViewModels
                 level = value;
                 this.RaisePropertyChanged();
 
-                Description = (Level.DataContext as ILevelViewModel).Description;
+                Description = (Level.DataContext as BaseLevelViewModel).Description;
             }
         }
     }
