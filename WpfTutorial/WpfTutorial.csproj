@@ -66,6 +66,7 @@
     <Compile Include="ViewModels\BaseWindowViewModel.cs" />
     <Compile Include="IViewModel.cs" />
     <Compile Include="IExportMetadata.cs" />
+    <Compile Include="ViewModels\Level5ViewViewModel.cs" />
     <Compile Include="ViewModels\Level4ViewViewModel.cs" />
     <Compile Include="ViewModels\Level3ViewViewModel.cs" />
     <Compile Include="ViewModels\Level2ViewViewModel.cs" />
@@ -74,6 +75,9 @@
     <Compile Include="ViewModels\MainWindowViewModel.cs" />
     <Compile Include="ViewModels\RelayCommand.cs" />
     <Compile Include="ILevelControl.cs" />
+    <Compile Include="Views\Level5View.xaml.cs">
+      <DependentUpon>Level5View.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Level4View.xaml.cs">
       <DependentUpon>Level4View.xaml</DependentUpon>
     </Compile>
@@ -101,6 +105,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Views\Level5View.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Views\Level4View.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

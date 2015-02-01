@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="WpfTutorial.Views.Level4View"
+﻿<UserControl x:Class="WpfTutorial.Views.Level5View"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -7,9 +7,9 @@
              d:DesignHeight="300" d:DesignWidth="300">
     <Grid>
         <StackPanel>
-            <TreeView ItemsSource="{Binding TagsView}">
+            <TreeView ItemsSource="{Binding Games}">
                 <TreeView.ItemTemplate>
-                    <HierarchicalDataTemplate ItemsSource="{Binding Children}">
+                    <HierarchicalDataTemplate ItemsSource="{Binding Characters}">
                         <TextBlock Text="{Binding Name}" Tag="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}}">
                             <TextBlock.ContextMenu>
                                 <ContextMenu>
