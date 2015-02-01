@@ -11,8 +11,25 @@ namespace WpfTutorial.ViewModels
     [ExportViewModel(typeof(Level7ViewViewModel))]
     public class Level7ViewViewModel : BaseLevelViewModel
     {
+        private ObservableCollection<Item> wishListItems;
+        public ObservableCollection<Item> WishListItems
+        {
+            get { return wishListItems; }
+            set
+            {
+                wishListItems = value;
+                this.RaisePropertyChanged();
+            }
+        }
+
+        public class Item
+        {
+            public string Name { get; set; }
+        }
+
         public Level7ViewViewModel()
         {
+            WishListItems = new ObservableCollection<Item>();
         }
 
         public override void OnLoaded(object sender)
